@@ -1,5 +1,3 @@
-import "./App.css";
-
 // Import des composants
 import Header from "./components/Header";
 import Footer from "./components/Footer";
