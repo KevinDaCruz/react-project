@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="main-content">
+      <main>
         <Container>
           <Row className="gx-3">
             <Col xs={12} md={4}>
