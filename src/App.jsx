@@ -1,13 +1,13 @@
 import './App.css'
 
 // Import des composants
-import Header from './assets/components/Header'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <>
-    <Header /> // Affichage du composant Header
+    <Header />
     </>
   )
 }
