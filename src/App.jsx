@@ -1,15 +1,16 @@
-import './App.css'
+import "./App.css";
 
 // Import des composants
-import Header from './components/Header'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-
   return (
     <>
-    <Header />
+      <Header />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
