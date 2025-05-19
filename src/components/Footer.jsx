@@ -1,3 +1,5 @@
+import "../assets/styles/Footer.scss";
+
 export default function Footer() {
   return (
     <footer>

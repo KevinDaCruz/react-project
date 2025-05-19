@@ -1,0 +1,22 @@
+main {
+  .dish-card {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .card-body {
+      flex-grow: 1;
+    }
+  }
+
+  &.main-content {
+    padding: 50px 0;
+  }
+}
