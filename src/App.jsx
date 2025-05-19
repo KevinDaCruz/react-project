@@ -2,6 +2,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
 
+// Import du style
+import "./assets/styles/App.scss";
+
 import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
