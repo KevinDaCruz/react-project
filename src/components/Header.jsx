@@ -8,10 +8,7 @@ export default function Header() {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
-            <img
-              src={logo}
-              alt="An Mexican food logo"
-            />
+            <img src={logo} alt="An Mexican food logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
