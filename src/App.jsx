@@ -10,6 +10,11 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 function App() {
   const [showNewOnly, setShowNewOnly] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount((prevCount) => prevCount + 1);
+  };
 
   const handleShowNewOnly = () => {
     setShowNewOnly(!showNewOnly);
@@ -50,7 +55,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cartCount={cartCount} />
       <main>
         <Container>
           <Button variant="primary" onClick={handleShowNewOnly}>
@@ -64,6 +69,7 @@ function App() {
                   price={dish.price}
                   image={dish.image}
                   isNew={dish.isNew}
+                  addToCart={addToCart}
                 />
               </Col>
             ))}

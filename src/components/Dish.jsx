@@ -1,11 +1,7 @@
 import { Card, Badge, Button } from "react-bootstrap";
 import "../assets/styles/dish.scss";
 
-export default function Dish({ name, price, image, isNew }) {
-  const handleAddToCart = (name) => {
-    alert(`Le plat ${name} est maintenant dans votre panier`);
-  };
-
+export default function Dish({ name, price, image, isNew, addToCart }) {
   return (
     <Card className="position-relative">
       {isNew && (
@@ -20,7 +16,9 @@ export default function Dish({ name, price, image, isNew }) {
         <Button
           variant="primary"
           onClick={() => {
-            handleAddToCart(name);
+            {
+              addToCart();
+            }
           }}
         >
           Ajouter au panier
