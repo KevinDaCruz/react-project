@@ -6,10 +6,6 @@ export const CartContext = createContext();
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addToCart = () => {
-    setCartCount((prev) => prev + 1);
-  };
-
   return (
     <CartContext.Provider value={{ cartCount: state.cartCount, dispatch }}>
       {children}
