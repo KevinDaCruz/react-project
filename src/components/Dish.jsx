@@ -13,14 +13,7 @@ export default function Dish({ name, price, image, isNew, addToCart }) {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{price} €</Card.Text>
-        <Button
-          variant="primary"
-          onClick={() => {
-            {
-              addToCart();
-            }
-          }}
-        >
+        <Button variant="primary" onClick={addToCart}>
           Ajouter au panier
         </Button>
       </Card.Body>

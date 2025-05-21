@@ -17,7 +17,7 @@ function App() {
   };
 
   const handleShowNewOnly = () => {
-    setShowNewOnly(!showNewOnly);
+    setShowNewOnly((prev) => !prev);
   };
 
   const dishes = [
@@ -48,9 +48,7 @@ function App() {
   ];
 
   const filteredDishes = dishes.filter((dish) => {
-    if (dish.stock <= 0) return false;
-    if (showNewOnly && !dish.isNew) return false;
-    return true;
+    (dish) => dish.stock > 0 && (!showNewOnly || dish.isNew);
   });
 
   return (
