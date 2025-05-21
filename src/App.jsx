@@ -1,15 +1,15 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
+import useCart from "./hooks/useCart";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { CartContext } from "./context/CartContext";
 
 import "./assets/styles/App.scss";
 
 function App() {
   const [showNewOnly, setShowNewOnly] = useState(false);
-  const { cartCount } = useContext(CartContext);
+  const { cartCount } = useCart();
 
   const prevCartCountRef = useRef(cartCount);
 

@@ -1,11 +1,10 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/img/logo.webp";
 import "../assets/styles/Header.scss";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import useCart from "../hooks/useCart";
 
 export default function Header() {
-  const { cartCount } = useContext(CartContext);
+  const { cartCount } = useCart();
 
   return (
     <header>
