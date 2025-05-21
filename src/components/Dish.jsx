@@ -1,7 +1,11 @@
 import { Card, Badge, Button } from "react-bootstrap";
 import "../assets/styles/dish.scss";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-export default function Dish({ name, price, image, isNew, addToCart }) {
+export default function Dish({ name, price, image, isNew}) {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <Card className="position-relative">
       {isNew && (

@@ -10,11 +10,6 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 function App() {
   const [showNewOnly, setShowNewOnly] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-
-  const addToCart = () => {
-    setCartCount((prevCount) => prevCount + 1);
-  };
 
   const handleShowNewOnly = () => {
     setShowNewOnly((prev) => !prev);
@@ -47,13 +42,13 @@ function App() {
     },
   ];
 
-  const filteredDishes = dishes.filter((dish) => {
-    (dish) => dish.stock > 0 && (!showNewOnly || dish.isNew);
-  });
+  const filteredDishes = dishes.filter(
+    (dish) => dish.stock > 0 && (!showNewOnly || dish.isNew)
+  );
 
   return (
     <>
-      <Header cartCount={cartCount} />
+      <Header />
       <main>
         <Container>
           <Button variant="primary" onClick={handleShowNewOnly}>
@@ -67,7 +62,6 @@ function App() {
                   price={dish.price}
                   image={dish.image}
                   isNew={dish.isNew}
-                  addToCart={addToCart}
                 />
               </Col>
             ))}
