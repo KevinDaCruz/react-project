@@ -1,15 +1,23 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
-import { useState } from "react";
-
-// Import du style
-import "./assets/styles/App.scss";
-
+import { useState, useRef, useEffect, useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { CartContext } from "./context/CartContext";
+
+import "./assets/styles/App.scss";
 
 function App() {
   const [showNewOnly, setShowNewOnly] = useState(false);
+  const { cartCount } = useContext(CartContext);
+
+  const prevCartCountRef = useRef(cartCount);
+
+  useEffect(() => {
+    prevCartCountRef.current = cartCount;
+  }, [cartCount]);
+
+  const prevCartCount = prevCartCountRef.current;
 
   const handleShowNewOnly = () => {
     setShowNewOnly((prev) => !prev);
@@ -46,14 +54,31 @@ function App() {
     (dish) => dish.stock > 0 && (!showNewOnly || dish.isNew)
   );
 
+  // Message d'évolution du panier
+  const evolutionMessage =
+    prevCartCount !== cartCount
+      ? `Le panier est passé de ${prevCartCount} à ${cartCount} article${
+          cartCount > 1 ? "s" : ""
+        }.`
+      : "";
+
   return (
     <>
       <Header />
       <main>
         <Container>
-          <Button variant="primary" onClick={handleShowNewOnly}>
+          <Button
+            variant="primary"
+            onClick={handleShowNewOnly}
+            className="mb-3"
+          >
             {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
           </Button>
+
+          {evolutionMessage && (
+            <div className="alert alert-info">{evolutionMessage}</div>
+          )}
+
           <Row className="gx-3">
             {filteredDishes.map((dish, index) => (
               <Col xs={12} md={4} key={index}>
